@@ -16,7 +16,6 @@ async function fetchData(){
         container.innerHTML= `
          <h1> ${character.name}</h1>
          <h2> ${character.id}</h2>
-         <h2>Status: ${character.status}</h2> 
          <h2>Species: ${character.species}</h2>
          <a id=CharacterDetails href="${character.url}" target="_blank">Details</a>
          <div class="image"><img src="${character.image}"/></div>
