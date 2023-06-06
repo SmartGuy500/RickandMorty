@@ -1,4 +1,5 @@
 //Wubba lubba dub dub
+const PlaceHolder = document.querySelector(".Character")
 
 async function fetchData(){
     const response = await fetch('https://rickandmortyapi.com/api/character')
@@ -19,10 +20,27 @@ async function fetchData(){
          <h2>Species: ${character.species}</h2>
          <a id=CharacterDetails href="${character.url}" target="_blank">Details</a>
          <div class="image"><img src="${character.image}"/></div>
+         <a class = "link" target="_blank">View Character Details</a>
         `
 
-        document.body.appendChild(container)
+        const link = container.querySelector('.link')
+        link.addEventListener('click', async function(){
+            try{
+                const response = await fetch(`https://rickandmortyapi.com/api/character/${character.id}`)
+                const data = await response.json()
+                console.log(data)
+
+                localStorage.setItem('character', JSON.stringify)
+                window.open('character.html', '_blank')
+            }
+            catch(error){
+             console.log(error)
+            }     
+        })
+
+        PlaceHolder.appendChild(container)
     })
 
 }
 fetchData()
+
