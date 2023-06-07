@@ -23,20 +23,28 @@ async function fetchData(){
          <a class = "link" target="_blank">View Character Details</a>
         `
 
-        const link = container.querySelector('.link')
-        link.addEventListener('click', async function(){
-            try{
-                const response = await fetch(`https://rickandmortyapi.com/api/character/${character.id}`)
-                const data = await response.json()
-                console.log(data)
+        // const link = container.querySelector('.link')
+        // link.addEventListener('click', async function() {
+        //     try{
+        //         const response = await fetch(`https://rickandmortyapi.com/api/character/${character.id}`)
+        //         const data = await response.json()
+        //         console.log(data)
 
-                localStorage.setItem('character', JSON.stringify)
-                window.open('character.html', '_blank')
-            }
-            catch(error){
-             console.log(error)
-            }     
+        //         localStorage.setItem('character', JSON.stringify)
+        //         window.open('character.html', '_blank')
+        //     }
+        //     catch(error){
+        //      console.log(error)
+        //     }     
+        // })
+        const link = container.querySelector('.link')
+
+        link.addEventListener('click', () => {
+            localStorage.setItem('character', JSON.stringify(character))
+            window.open('character.html', '_blank')
         })
+
+
 
         PlaceHolder.appendChild(container)
     })
